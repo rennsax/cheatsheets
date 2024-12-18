@@ -24,6 +24,9 @@ echo -n "Hello World" | sha256sum
 # If they don't match (warning, you might have been hacked), it will 
 # print "filename: FAILED".
 sha256sum --check <file-with-list-of-checksums>
+sha256sum --check <<EOF
+<hash> <file_name>
+EOF
 
 # Same as above (but ignore missing files):
 # This tells you if your file is an exact copy (OK) or has been 

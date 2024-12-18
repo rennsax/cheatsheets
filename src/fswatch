@@ -1,0 +1,5 @@
+---
+tags: [ fs ]
+---
+# Watch files and execute command on the changed file(s)
+fswatch -0 FILE/DIR | xargs -0 -I {} CMD

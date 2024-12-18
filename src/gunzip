@@ -1,0 +1,7 @@
+---
+tags: [ compression ]
+---
+
+# Uncompress .gz file and keep the original file
+# gzip -d override the original file
+gunzip -c x.gz > x

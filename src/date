@@ -1,6 +1,9 @@
 ---
 tags: [ date, time ]
 ---
+# (GNU date) To convert a Unix timestamp to Date.
+date -d @1721404800 +"%Y-%m-%d %H:%M:%S %z"
+
 # To print Abbreviated weekday name:
 date +"%a"
 
