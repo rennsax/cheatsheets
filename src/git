@@ -1,6 +1,8 @@
 ---
 tags: [ vcs, git ]
 ---
+# Recreate the conflicted merge
+git checkout --merge
 
 # Record the fact the "untracked" files will be added later.
 # The effect: the file will be annotated as "added", and `git diff` will show its content.

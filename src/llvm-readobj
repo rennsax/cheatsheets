@@ -1,0 +1,27 @@
+---
+tags: [ binary ]
+---
+# llvm-readobj is a powerful utility for reading the information in binary file.
+# Compared to readelf, it's cross-platform and supports more binary format
+# except ELF.
+
+# Some option has similar meanings in readelf, for which I comment "readelf".
+
+# Control the output format of ELF information.
+llvm-readobj --elf-output-style=GNU .. # GNU readelf compliant
+llvm-readobj --elf-output-style=JSON ..
+# llvm-readelf is the alias of llvm-readobj that uses GNU for the
+# --elf-output-style option by default.
+llvm-readelf -h test.o
+
+# Read the relocation section
+llvm-readobj --relocations test.o
+llvm-readobj -r test.o          # readelf
+
+# Read the file header
+llvm-readobj --file-header test.o
+llvm-readobj -h test.o          # readelf
+
+# Read the section headers
+llvm-readobj --section-headers test.o
+llvm-readobj -S test.o          # readelf

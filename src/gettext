@@ -1,0 +1,19 @@
+---
+tags: [ i18n ]
+---
+# Get POT file from source code
+# -d: domain
+# -o: output
+xgettext -d messages -o locale/messages.pot FILE --from-code=UTF-8
+
+# Initialize a PO file from POT
+# -l: language
+# --no-translator: do not ask for email for signing translation
+msginit -l zh_CN -o locale/zh_CN/LC_MESSAGES/messages.po \
+        -i locale/message.pot --no-translator
+
+# Update an existing PO file from the newly-generated POT file
+msgmerge -U locale/zh_CN/LC_MESSAGES/messages.po locale/messages.pot
+
+# Generate binary message catalog (MO) from PO
+msgfmt -o messages.mo messages.po

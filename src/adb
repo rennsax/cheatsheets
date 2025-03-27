@@ -1,0 +1,14 @@
+---
+tags: [ android ]
+---
+# Start/kill ADB server
+adb start-server | kill-server
+
+# List all devices
+adb devices
+
+# Copy files/dirs from device to PC
+adb pull REMOTE... LOCAL
+
+# Copy local files/directories to device
+adb push LOCAL... REMOTE

@@ -1,0 +1,8 @@
+---
+tags: [ binary ]
+---
+# Dump an object, with canonical hex+ASCII display
+hexdump -C FILE
+
+# Skip OFFSET bytes and show only LENGTH bytes
+hexdump -s OFFSET -n LENGTH FILE

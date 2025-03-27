@@ -1,3 +1,8 @@
+# To convert mp4 to mp3
+# -vn: video none
+# -q:a: quality (0-9)
+ffmpeg -i video.mp4 -vn -acodec libmp3lame -q:a 4 music.mp3
+
 # To convert mp4 to mp3 (Docker)
 docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg \
     -i /config/"$f" \
@@ -7,13 +12,15 @@ docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg \
     /config/"${f%.mp4}".mp3
 
 # To convert mkv to mp4
-docker run --rm -it -v $(pwd):/config linuxserver/ffmpeg \
-       -i /config/3.mkv \
+ffmpeg -i /config/3.mkv \
        -c:v libx264 -crf 23 \
        -c:a aac -b:a 256k -movflags +faststart /config/3.mp4
 
 # To print file metadata:
 ffmpeg -i <file>
+
+# To edit metadata
+ffmpeg -i FILE -metadata title="TITLE" -metadata album="TITLE" OUTPUT_FILE
 
 # To convert all m4a files to mp3
 for f in *.m4a; do ffmpeg -i "$f" -acodec libmp3lame -vn -b:a 320k "${f%.m4a}.mp3"; done

@@ -3,6 +3,7 @@ tags: [ binary ]
 ---
 # Displays the contents of the file's relocation section.
 readelf --relocs test.o
+readelf -r test.o
 
 # Display the section as hexadecimal bytes / printable strings.
 readelf -x .rodata compilation_example.o
@@ -11,8 +12,16 @@ readelf -p .interp a.out
 # read the ELF [h]eader
 readelf -h test.o
 
+# For *program header table* and *section header table*, it's recommended to
+# pass the `--wide` option to display in a more readable format.
+
 # read the information contained in the file's [S]ection headers
 readelf -S test.o
+readelf --section-headers test.o
+
+# read the program header, namely the segment information
+readelf -l test.o
+readelf --segments test.o
 
 # read contents of the specified section
 readelf -x <section name|section number> test.o

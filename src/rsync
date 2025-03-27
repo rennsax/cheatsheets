@@ -1,6 +1,10 @@
 # To copy while adding write permission. (Useful for copying Nix store files)
 rsync -avz --chmod=u+w ./result/. DIR/
 
+# Delete extraneous files from the receiving side
+# Use `--delete-exclude` and `--exclude` for fine-grained control.
+rsync -avz --delete <src> <dst>
+
 # To copy files from remote to local, maintaining file properties and sym-links
 # (-a), zipping for faster transfer (-z), verbose (-v), show progress
 # (--progress) and use human-readable format (-h):

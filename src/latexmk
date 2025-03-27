@@ -1,0 +1,5 @@
+# Compile the tex file to PDF and preview it
+latexmk -pdf -pv FILE
+
+# Continually update output files
+latexmk -pdf -pvc FILE
